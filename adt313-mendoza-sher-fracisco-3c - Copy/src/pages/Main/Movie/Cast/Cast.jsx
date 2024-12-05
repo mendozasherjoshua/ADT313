@@ -7,102 +7,85 @@
 // }; export default Cast
 
 
-// Cast.jsx
 import React, { useState, useEffect } from 'react';
 import './Cast.css';
 
-const Cast = () => {
-  const [cast, setCast] = useState([]);
-  const [newCast, setNewCast] = useState({ name: '', character: '', imageUrl: '' });
-
-  // Fetch cast data (Read)
-  useEffect(() => {
-    // Fetch cast data from an API or database and set the state
-    const fetchCastData = async () => {
-      const response = await fetch('/api/cast');
-      const data = await response.json();
-      setCast(data);
-    };
-    fetchCastData();
-  }, []);
-
-  // Create new cast member
-  const handleCreateCast = async () => {
-    // Send a POST request to the API or database to create a new cast member
-    const response = await fetch('/api/cast', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newCast),
-    });
-    const data = await response.json();
-    setCast([...cast, data]);
-    setNewCast({ name: '', character: '', imageUrl: '' });
-  };
-
-  // Update cast member
-  const handleUpdateCast = async (id, updatedCast) => {
-    // Send a PUT request to the API or database to update a cast member
-    const response = await fetch(`/api/cast/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(updatedCast),
-    });
-    const data = await response.json();
-    setCast(cast.map((member) => (member.id === id ? data : member)));
-  };
-
-  // Delete cast member
-  const handleDeleteCast = async (id) => {
-    // Send a DELETE request to the API or database to delete a cast member
-    await fetch(`/api/cast/${id}`, {
-      method: 'DELETE',
-    });
-    setCast(cast.filter((member) => member.id !== id));
-  };
-
-  return (
-    <div className="cast-container">
-      <h2 className="cast-title">Cast</h2>
-      <div className="cast-list">
-        {cast.map((member) => (
-          <div key={member.id} className="cast-member">
-            <img src={member.imageUrl} alt={member.name} className="cast-image" />
-            <h3 className="cast-name">{member.name}</h3>
-            <p className="cast-character">{member.character}</p>
-            <button onClick={() => handleUpdateCast(member.id, { name: 'Updated Name', character: 'Updated Character', imageUrl: 'updated-image.jpg' })}>
-              Update
-            </button>
-            <button onClick={() => handleDeleteCast(member.id)}>Delete</button>
-          </div>
-        ))}
-      </div>
-      <div className="cast-create">
-        <input
-          type="text"
-          placeholder="Name"
-          value={newCast.name}
-          onChange={(e) => setNewCast({ ...newCast, name: e.target.value })}
-        />
-        <input
-          type="text"
-          placeholder="Character"
-          value={newCast.character}
-          onChange={(e) => setNewCast({ ...newCast, character: e.target.value })}
-        />
-        <input
-          type="text"
-          placeholder="Image URL"
-          value={newCast.imageUrl}
-          onChange={(e) => setNewCast({ ...newCast, imageUrl: e.target.value })}
-        />
-        <button onClick={handleCreateCast}>Create</button>
-      </div>
-    </div>
-  );
+const CastsAndCrew = ({ Cast }) => {
+    return (
+    <div className="Cast-container">
+            {Cast.map((Cast, index) => (
+                <div key={index} className="Cast-card">
+                    <h3 className="Cast-name">{Cast.name}</h3>
+                    <p className="Cast-role">{Cast.role}</p>
+                    {Cast.imageUrl && <img src={Cast.imageUrl} alt={`${Cast.name}`} className="Cast-image" />}
+                    {Cast.description && <p className="Cast-description">{Cast.description}</p>} 
+                </div>
+            ))}
+        </div>
+    );
 };
 
-export default Cast;
+export default function App() {
+    const [CastData, setCastData] = useState([ ]); 
+    const [newCast, setNewCast] = useState({ name: ' ', role: ' ', imageUrl: ' ', description: ' ' }); 
+ 
+    useEffect(() => {
+        const savedCast = localStorage.getItem('CastData');
+        if (savedCast) {
+            setCastData(JSON.parse(savedCast));
+        }
+    }, [ ]); 
+
+    useEffect(() => {
+        localStorage.setItem('CastData', JSON.stringify(CastData));
+    }, [CastData]);
+  
+    const addCast = ( ) => { 
+    if (newCast.name.trim( ) !== ' ' && newCast.role.trim( ) !== ' ' ) { 
+            setCastData([...CastData, newCast]);
+            setNewCast({ name: ' ', role: ' ', imageUrl: ' ', description: ' ' }); 
+        }
+    };
+   
+    useEffect(( ) => { 
+        const interval = setInterval(( ) => { 
+            console.log('Auto-saving cast and crew data:', CastData);
+        }, 5000);
+  
+        return ( ) => clearInterval(interval); 
+    }, [CastData]);
+  
+    return (
+        <div>
+            <h1>Cast and Crew</h1>
+            <div className="input-container">
+                <input
+                    type="text"
+                    value={newCast.name}
+                    onChange={(e) => setNewCast({ ...newCast, name: e.target.value })} 
+                    placeholder="Enter name"
+                />
+                <input
+                    type="text"
+                    value={newCast.role}
+                    onChange={(e) => setNewCast({ ...newCast, role: e.target.value })}
+                    placeholder="Enter role"
+                />
+                <input
+                    type="text"
+                    value={newCast.imageUrl}
+                    onChange={(e) =>  setNewCast({ ...newCast, imageUrl: e.target.value })} 
+                    placeholder="Enter image URL"
+                />
+                <input
+                    type="text"
+                    value={newCast.description}
+                    onChange={(e) => setNewCast({ ...newCast, description: e.target.value })}
+                    placeholder="Enter description"
+                />
+                <button onClick={addCast}>Add Cast</button>
+            </div>   
+            <CastsAndCrew Cast={CastData} />
+        </div>
+    );          
+}

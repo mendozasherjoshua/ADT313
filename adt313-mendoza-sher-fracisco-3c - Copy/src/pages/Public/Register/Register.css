@@ -26,7 +26,7 @@
   
   .form-container {
     padding: 4rem 2rem;
-    border: 1px solid #1ab634;
+    border: 1px solid #db9807;
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -73,7 +73,7 @@
   
   button {
     padding: 0.5rem 1rem;
-    background-color: #007bff;
+    background: linear-gradient(to bottom, #f16868, #db0707);
     color: white;
     border: none;
     border-radius: 4px;
@@ -87,13 +87,13 @@
 
   .form-container {
     padding: 2rem;
-    border: 2px solid #4A7C59;
+    border: 5px solid #db0707;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, #FFFFFF, #F5F9F5);
+    background: linear-gradient(to bottom, #bebdbd, #333433);
     min-width: 320px;
   }
 
