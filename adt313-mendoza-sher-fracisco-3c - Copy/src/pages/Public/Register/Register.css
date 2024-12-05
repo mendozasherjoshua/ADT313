@@ -1,4 +1,4 @@
-/* .Register {
+.Register {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,6 +6,7 @@
   }
   
   .main-container {
+    color: rgb(3, 20, 3);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,7 +15,7 @@
   
   .form-container {
     padding: 4rem 2rem;
-    border: 1px solid #ccc;
+    border: 1px solid #1ab634;
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -69,13 +70,23 @@
   button:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
-  } */
+  } 
+
+  .form-container {
+    padding: 2rem;
+    border: 2px solid #4A7C59;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #FFFFFF, #F5F9F5);
+    min-width: 320px;
+  }
 
 
 
-
-
-  .Register {
+  /* .Register {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -238,4 +249,75 @@
     .errors {
       margin-left: 0;
     }
+  } */
+
+
+
+
+  /* .Register {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #42f532, #0c7a02);
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
   }
+  
+  .main-container {
+    background-color: #0c7a02;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .main-container::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 100px;
+    opacity: 0.1;
+    transform: rotate(15deg);
+  }
+  
+  .main-container h3 {
+    color: #4A2C2A;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    position: relative;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #6F4E37;
+    font-weight: 600;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #D2691E;
+    border-radius: 8px;
+    background-color: #FFF;
+    transition: all 0.3s ease;
+    font-size: 16px;
+  } */

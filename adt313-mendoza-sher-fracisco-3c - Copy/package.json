@@ -39,4 +39,6 @@
     ]
   },
   "proxy": "http://localhost/movieproject-api"
+  
+  
 }

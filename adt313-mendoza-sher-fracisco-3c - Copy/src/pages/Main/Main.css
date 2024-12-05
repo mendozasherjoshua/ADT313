@@ -14,7 +14,8 @@
 .Main .container .navigation {
   background-color: aliceblue;
   padding-top: 40px;
-  height: 100vh;
+  height: 200vh;
+  width: 150px;
 }
 .Main .container .navigation ul {
   list-style: none;
