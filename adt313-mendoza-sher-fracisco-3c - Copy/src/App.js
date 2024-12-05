@@ -11,11 +11,15 @@ import Form from './pages/Main/Movie/Form/Form';
 import Cast from './pages/Main/Movie/Cast/Cast';
 import Photos from './pages/Main/Movie/Photos/Photos';
 import Videos from './pages/Main/Movie/Video/Video';
-
+import Register from './pages/Public/Register/Register';
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Login />,
+  },
+  {
+    path: '/register',
+    element: <Register />,
   },
   {
     path: '/main',

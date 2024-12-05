@@ -36,7 +36,7 @@ function Register() {
     setStatus('loading');
     try {
       const response = await axios.post('/admin/register', formData, {
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json' ,'Access-Control-Allow-Origin': '*'  }
       });
       console.log(response.data);
       alert('Registration successful! Please login.');
