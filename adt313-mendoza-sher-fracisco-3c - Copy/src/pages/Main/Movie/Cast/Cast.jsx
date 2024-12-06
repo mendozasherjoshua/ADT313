@@ -98,16 +98,22 @@ import axios from 'axios';
 const App = () => {
   const [movieId, setMovieId] = useState('');
   const [credits, setCredits] = useState([]);
-  const [castAndCrew, setCastAndCrew] = useState([]);
+  const [castAndCrew, setCastAndCrew] = useState( []);
 
   // Fetch movie credits from TMDB
   const fetchCredits = async () => {
-    try {
-      const response = await axios.get(`http://localhost:3001/api/movie/${movieId}/credits`);
-      setCredits(response.data.cast.concat(response.data.crew)); // Merge both cast and crew
-    } catch (error) {
-      console.error('Error fetching movie credits', error);
-    }
+    axios({
+      method: 'get',
+      url: `https://api.themoviedb.org/3/movie/${movieId}/credits`,
+      headers: {
+        Accept: 'application/json',
+        Authorization:
+          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YTYxOTQxOWJiMzc5ZjEyY2U0OGU2MzA5OTVhNTg1ZiIsIm5iZiI6MTczMzI4OTY1Mi41NzYsInN1YiI6IjY3NGZlNmI0NDQ4NDdlOTdkZmY0MDI3YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LQpZmYMN4a2ux83Kbum8o7zffI5iIrmj3eoDZdSyCaQ',
+        },
+    }).then((response) => {
+      setCastAndCrew(response.data.cast);
+      console.log(response.data.results);
+    });
   };
 
   // Add cast/crew member to the database
@@ -167,3 +173,4 @@ const App = () => {
 
 export default App;
 
+//--------------------------------------------------------------------

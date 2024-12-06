@@ -38,3 +38,27 @@
 .Main .container .navigation ul li.logout {
   cursor: pointer;
 }
+
+/*-------------------text color---------------------------------*/
+h1{
+  color: aliceblue;
+}
+
+h2{
+  color: aliceblue;
+}
+li{
+  color:aliceblue;
+}
+div.field{
+  color:aliceblue;
+}
+a{
+  color:black;
+}
+td{
+  color:aliceblue; 
+}
+th{
+  color:aliceblue;
+}

@@ -45,9 +45,7 @@ const router = createBrowserRouter([
               
               {
                 path: '/main/movies/form/:movieId/cast-and-crews',
-                element: (
-                   <Cast />
-                ),
+                element:<Cast />,
               },
               {
                 path: '/main/movies/form/:movieId/photos',
