@@ -2,7 +2,7 @@
     padding: 20px;
     font-family: Arial, sans-serif;
     color: #fff;
-    background-color: #121212; /* Dark theme like Netflix */
+    background-color: #121212; 
   }
   
   .movie-banner {
@@ -32,10 +32,10 @@
   
   .movie-overview {
     width: 800px;
-    margin: 0 auto; /* Centers the overview horizontally */
-    font-size: 1rem; /* Optional: Adjusts the font size */
-    line-height: 1.5; /* Optional: Improves readability */
-    text-align: justify; /* Optional: Makes the text aligned for better readability */
+    margin: 0 auto; 
+    font-size: 1rem; 
+    line-height: 1.5; 
+    text-align: justify; 
   }
   
   

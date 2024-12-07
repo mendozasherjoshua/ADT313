@@ -13,7 +13,7 @@ function View() {
       axios
         .get(`/movies/${movieId}`)
         .then((response) => {
-          console.log(response.data); // Inspect the data here
+          console.log(response.data); 
           setMovie(response.data);
         })
         .catch((error) => {
