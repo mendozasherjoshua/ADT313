@@ -1,0 +1,77 @@
+
+.Main {
+  display: flex;
+  overflow: hidden;
+  max-height: 100vh;
+
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.52)), url(grass.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.Main .container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+
+}
+.Main .container .outlet {
+  flex-grow: 3;
+  padding: 1rem;
+  overflow-y: auto;
+
+  
+}
+.Main .container .navigation {
+  height: 80px;
+  background-color: #1d8f3c;
+  width: 100%;
+}
+.Main .container .navigation ul {
+  list-style: none;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.Main .container .navigation ul li {
+  padding: 0px 60px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f7f8f7; 
+  font-weight: bold;
+}
+.Main .container .navigation ul li a {
+  text-decoration: none;
+  color: #f1faf4; 
+}
+.Main .container .navigation ul li.active a,
+.Main .container .navigation ul li:hover a {
+  text-decoration: none;
+  color: white;
+}
+.Main .container .navigation ul li.active,
+.Main .container .navigation ul li:hover {
+  background: #1a6b53; 
+}
+.Main .container .navigation ul li a {
+  text-decoration: none;
+}
+
+.Main .container .navigation ul li.logout,
+.Main .container .navigation ul li.login {
+  cursor: pointer;
+  justify-self: end;
+}
+
