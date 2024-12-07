@@ -14,7 +14,7 @@
 .Main .container .navigation {
   background-color: aliceblue;
   padding-top: 40px;
-  height: 200vh;
+  height: 300vh;
   width: 150px;
 }
 .Main .container .navigation ul {
@@ -39,26 +39,26 @@
   cursor: pointer;
 }
 
-/*-------------------text color---------------------------------*/
+/*-------------------text color  ^-^ --------------------------------*/
 h1{
-  color: aliceblue;
+  color: rgb(4, 71, 27);
 }
 
 h2{
-  color: aliceblue;
+  color: rgb(4, 71, 27);
 }
 li{
-  color:aliceblue;
+  color:rgb(4, 71, 27);
 }
 div.field{
-  color:aliceblue;
+  color:rgb(4, 71, 27);
 }
 a{
   color:black;
 }
 td{
-  color:aliceblue; 
+  color:rgb(4, 71, 27); 
 }
 th{
-  color:aliceblue;
+  color:rgb(4, 71, 27);
 }

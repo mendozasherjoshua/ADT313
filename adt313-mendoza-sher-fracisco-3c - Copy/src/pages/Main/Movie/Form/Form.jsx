@@ -125,6 +125,7 @@ const Form = () => {
           <div className='field'>
             Title:
             <input
+            
               type='text'
               value={selectedMovie ? selectedMovie.original_title : ''}
             />
